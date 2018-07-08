@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Cabyx
+Comment=Cabyx P2P Cryptocurrency
+Comment[fr]=Cabyx, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Cabyx, eşten eşe kriptografik sanal para birimi
+Exec=cabyx-qt %u
+Terminal=false
+Type=Application
+Icon=cabyx128
+MimeType=x-scheme-handler/cabyx;
+Categories=Office;Finance;

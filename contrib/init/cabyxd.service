@@ -1,0 +1,26 @@
+[Unit]
+Description=CABYX's distributed currency daemon
+After=network.target
+
+[Service]
+User=cabyx
+Group=cabyx
+
+Type=forking
+PIDFile=/var/lib/cabyxd/cabyxd.pid
+
+ExecStart=/usr/bin/cabyxd -daemon -pid=/var/lib/cabyxd/cabyxd.pid \
+          -conf=/etc/cabyx/cabyx.conf -datadir=/var/lib/cabyxd
+
+ExecStop=-/usr/bin/cabyx-cli -conf=/etc/cabyx/cabyx.conf \
+         -datadir=/var/lib/cabyxd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
