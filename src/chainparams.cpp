@@ -54,8 +54,8 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x0000010f9ad3a2919a9502e646e818694db7a358d90db51c84ef8fdbb291476d"))
-    (2, uint256("000003c1194b8b4518be765c88fa3f4701b6e293ddfd5f95e3a1fc49984ffc7a")); // Premine
+    (0, uint256("0x0000071b2661c28a49b7fad6fe0f55755e0ad86b2e6e70f355eee2ce0378aad1"));
+   // (2, uint256("00000c74853340fbbf0799919b560c3875d6ca5715b1cc65e2ca2651cb1a913f")); // Premine
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1519515449, // * UNIX timestamp of last checkpoint block
@@ -113,7 +113,7 @@ public:
         nModifierUpdateBlock = 510;
         nMaxMoneyOut = 21000000 * COIN;
 
-        const char* pszTimestamp = "in cabyx coin we are building a better future for the world";
+        const char* pszTimestamp = "in cabyx coin we are building a better future today for the world";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -124,24 +124,23 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1530773770;
+        genesis.nTime = 1531434009;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 4926527;
+        genesis.nNonce = 3182;
 
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x0000010f9ad3a2919a9502e646e818694db7a358d90db51c84ef8fdbb291476d"));
-        assert(genesis.hashMerkleRoot == uint256("0x7ee22ecd58b23e33f769f9ef972ceed17d4b74ac0adb1fd322d0c93756b291a2"));
+        assert(hashGenesisBlock == uint256("0x0000071b2661c28a49b7fad6fe0f55755e0ad86b2e6e70f355eee2ce0378aad1"));
+        assert(genesis.hashMerkleRoot == uint256("0x93d45b9ce6570d018dd947a4d74294e803a441d0ef00540a54a7c0ccf243f76a"));
 
-        vSeeds.push_back(CDNSSeedData("cabyx seed 1", "207.246.116.246"));
-        vSeeds.push_back(CDNSSeedData("cabyx seed 2", "45.77.195.219"));
+        vSeeds.push_back(CDNSSeedData("45.77.195.219", "45.77.195.219"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 35);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 95);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 163);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
-        // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+        //  BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x77).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
@@ -198,7 +197,7 @@ public:
         nMaxMoneyOut = 43199500 * COIN;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1530773770;
+        genesis.nTime = 1531434009;
         genesis.nNonce = 4926527;
 
         hashGenesisBlock = genesis.GetHash();
@@ -228,7 +227,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKey = "04e6e1b4cfb639c549f032918e5d5f2da0b7173ff532b9b566ca8d66b94ccbf7cc468d5eaba4f73e0fca1ab50dfe85a202680ebd94feda6824cd28602665da00a";
         strObfuscationPoolDummyAddress = "FUckqzpxTNpQzMiF2sfcPu7sHbPy9DPwZK";
-        nStartMasternodePayments = 1530773770; //
+        nStartMasternodePayments = 1531434009; //
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -260,7 +259,7 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Cabyx: 1 day
         nTargetSpacing = 1 * 60;        // Cabyx: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1530773770;
+        genesis.nTime = 1531434009;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 12345;
 
